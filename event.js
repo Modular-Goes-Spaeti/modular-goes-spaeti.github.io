@@ -5,11 +5,12 @@
    ===================================================================== */
 const EVENT = {
   nr: 16,
-  date: null,                 // z. B. "2026-11-20"
+  date: "2026-11-13",         // oder null, solange das Datum offen ist
   start: "18:00",
   end: "22:00",
   venue: "El Soto",
   address: "Urbanstr. 133, 10967 Berlin",
-  lineup: [],                 // z. B. ["Raw Image", "VXLR"]
+  lineup: ["Sensorium", "Frank Funke", "Varia Aves", "Matze Sampler"],
+  flyer: "flyer-16.jpg",      // Datei im Projekt, oder null
   list: "GL #16"              // Name der Brevo-Liste; der Crew-Zähler zählt nur diese Kennung
 };

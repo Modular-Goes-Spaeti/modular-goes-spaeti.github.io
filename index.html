@@ -140,6 +140,7 @@ button.ghost:hover{border-color:var(--magenta);background:transparent}
 .legal-en{font-size:.82rem;color:var(--bone-dim);margin:0 0 12px}
 .legal-en:empty{display:none}
 .gl .intro p{max-width:38ch}
+.flyer{display:block;width:100%;max-width:340px;height:auto;margin-top:22px;border:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -170,6 +171,7 @@ button.ghost:hover{border-color:var(--magenta);background:transparent}
       <h2 id="gl-h"></h2>
       <p id="introText"></p>
       <ul class="lineup" id="lineup" aria-label="Lineup"></ul>
+      <img class="flyer" id="flyer" alt="" hidden>
     </div>
 
     <div class="panel">
@@ -451,6 +453,8 @@ function render(){
   const items = STATE==="open" && EVENT.lineup.length ? EVENT.lineup : (STATE==="past" ? [] : [t.lineupSoon]);
   items.forEach(n=>{const li=document.createElement("li");li.textContent=n;lu.appendChild(li)});
   lu.hidden = !items.length;
+  const fl=$("flyer");
+  if(STATE==="open" && EVENT.flyer){fl.src=EVENT.flyer;fl.alt=(LANG==="de"?"Flyer für Runde #":"Flyer for round #")+EVENT.nr;fl.hidden=false}else{fl.hidden=true}
 
   // Gästeliste offen oder zu
   $("glForm").hidden = STATE!=="open";
